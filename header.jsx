@@ -10,7 +10,7 @@ const Header=({head,navigation})=>{
     return(
     <View style={{
                  flexDirection:'row',
-                 marginLeft:20
+                 marginLeft:20,
                  }}>
     <Icon name={'angle-left'} size={30} 
             style={{

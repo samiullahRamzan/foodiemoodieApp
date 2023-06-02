@@ -49,7 +49,7 @@ export default function LoginScreen({navigation,route}) {
     
 
     const handleLogin = async () => {
-      // console.log('Handle Sign In')
+       console.log('Handle Sign In')
       // await signInWithEmailAndPassword(auth, Email, Password)
       //   .then((userCredential) => {
       //     // Signed in
@@ -60,18 +60,17 @@ export default function LoginScreen({navigation,route}) {
       //     console.log("user data,", user);
 
       //     global.user=Email;
-          navigation.navigate('Favorites');
-          // ...
-        // })
-        // .catch((error) => {
-        //   console.log("Email=>" + Email);
-        //   console.log("Password=>" +Password);
-        //   const errorCode = error.code;
-        //   const errorMessage = error.message;
-        //   console.log("Error,", errorMessage);
-        //   Alert.alert(errorCode,errorMessage);
-        //   // ..
-        // });
+        navigation.navigate('Favorites');
+      //   })
+      //   .catch((error) => {
+      //     console.log("Email=>" + Email);
+      //     console.log("Password=>" +Password);
+      //     const errorCode = error.code;
+      //     const errorMessage = error.message;
+      //     console.log("Error,", errorMessage);
+      //     Alert.alert(errorCode,errorMessage);
+      //     // ..
+      //   });
     };
 
     // const [Name,setName]=useState(collecArray("user"));

@@ -1,69 +1,10 @@
 import React,{useEffect, useState} from 'react';
 import { Image,FlatList,StyleSheet, Text, View, Touchable, TouchableOpacity } from 'react-native';
 import Header from './header';
-import { getDatabase, ref, onValue, set, update } from "firebase/database";
-
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  addDoc,
-  onSnapshot,
-  doc,
-  deleteDoc,
-  updateDoc,
-  query,
-  where,
-} from "firebase/firestore";
-import {db,app} from './firebase';
-import firestore from '@react-native-firebase/firestore';
-
-
-
 
 export default function CategoryScreen({navigation,route}) {
-  
-    const collecArray=(collec)=>{
-      const snapshot = collection(db, collec);   // or getFirestore() replace by db
-      //console.log(ref);
-      const arr=new Array;
-      const q = query(snapshot,ref)           // it can work without ref
-      onSnapshot(q, snapshot=>{
-        // console.log('Fetched', snapshot.docs)
-        snapshot.docs.forEach(doc=>{
-          //console.log(doc.id,doc.data())
-          arr.push(doc.data());
-        })
-      }
-      )
-      return arr;
-     }
 
-  const num=2; 
-   const [passFlat,setpassFlat]=useState([]);
-   
-   const [Kebab,setKebab]=useState(collecArray("Kebab"));
-   const [Fried,setFried]=useState(collecArray("Fried"));
-   const [Burger,setBurger]=useState(collecArray("Burger"));
-   const [Shawarma,setShawarma]=useState(collecArray("Shawarma"));
-   //console.log(route.params.data.name);
-   useEffect(()=>{
-   
-    if(route.params.data.name=='Kebab'){
-     //console.log(route.params.data.name)
-      setpassFlat(Kebab);
-     }else if(route.params.data.name=='Fries'){    
-      //console.log(route.params.data.name)
-       setpassFlat(Fried);
-     } else if(route.params.data.name=='Burger'){
-      //console.log(route.params.data.name)
-       setpassFlat(Burger);
-     }else{
-      setpassFlat(Shawarma);
-
-     }
-  
-    },[])
+   const num=2; 
 
    return (
     <View style={styles.container}>
@@ -81,7 +22,7 @@ export default function CategoryScreen({navigation,route}) {
     <View style={{flex:0.9}}>
     
     <FlatList
-    data={passFlat}
+    data={global.passFlat}
     horizontal={false}
     numColumns={num}
     keyExtractor={item=>item.key}

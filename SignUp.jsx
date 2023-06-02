@@ -61,6 +61,7 @@ export default function SignUpScreen({navigation,route}) {
         };
 
     return (
+      
       <View style={styles.container}>
         <View style={{  flex:0.1 }}>
         <Header head='Sign Up' navigation={navigation}/> 
